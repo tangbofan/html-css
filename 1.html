@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header style="font-size:25px;">
+        学生信息
+    </header>
+    <fieldset  style="width:500px;height:400px;">
+        <legend style="color:red;">学生档案</legend>
+        <form id="testform"  method="get" action="#s" >
+            姓名:
+            <br>
+            <input type="text" name="name1" required placeholder="请输入姓名" autofocus autocomplete="off" style="width:400px;">
+            <span style="color:red;">*</span>
+            </br>
+            学号:
+            <br>
+            <input type="number" name="number1" required placeholder="请输入学号" autofocus autocomplete="off" style="width:400px;">
+            <span style="color:red;">*</span>
+            </br>
+            手机号码:
+            <br>
+            <input type="tel" name="p" required placeholder="请输入手机号" autofocus autocomplete="off" style="width:400px;">
+            <span style="color:red;">*</span>
+            </br>
+            <label for="email">邮箱地址：</label>
+            <br>
+            <input type="email" id="email" list="emailList" placeholder="请输入邮箱地址" required autofocus autocomplete="off" style="width:400px;">
+            <span style="color:red;">*</span>
+            </br>
+            <datalist id="emailList">
+                <option value="*@qq.com"></option>
+                <option value="*@163.com"></option>
+                <option value="*@126.com"></option>
+                <option value="*@gmail.com"></option>
+                <option value="*@yahoo.com.cn"></option>
+            </datalist>
+            录取学校：
+            <br>
+            <input type="search" name="sea1" list="names" autofocus autocomplete="off" style="width:403px;" />
+            <datalist id="names">
+                <option value="河北师范大学"></option>
+                <option value="河北科技大学"></option>
+                <option value="河北工业大学"></option>
+                <option value="石家庄铁道大学"></option>
+                <option value="河北大学"></option>
+                <option value="北京大学"></option>
+                <option value="清华大学"></option>
+                <option value="西安交通大学"></option>
+            </datalist>
+            </br>
+            入学成绩:
+            <br>
+            <input type="number" name="grade1"  autofocus autocomplete="off" style="width:400px;">
+            </br>
+            入学时间：
+            <br>
+            <input type="date" name="datedemo" autofocus autocomplete="off" style="width:403px;" />
+            </br>
+            <br></br>
+            <input type="submit" value="提交" style="width:403px; background-color:#DCDCDC">
+        </form>
+    </fieldset>
+</body>
+<script>
+    var email=document.getElementById("email");
+    var emailList=document.getElementById("emailList");
+    var option=document.getElementsByTagName("option");
+    email.oninput=function(){
+        var value=email.value;
+        var pattern=/(.*)(?=@)/;
+        for(var i=0;i<option.length;i++){
+            option[i].value=option[i].value.replace(pattern,value);
+        }
+        emailList.style.display="block";
+    }
+    email.onblur=function(){
+        emailList.style.display="none";
+
+    }
+</script>
+</html>
